@@ -17,12 +17,22 @@ const sequelize = new Sequelize(
 //Abstracto Persona.
 const UserModel = require('../models/user.model');
 const RoleModel = require('../models/role.model');
-
+const InfoPModel = require('../models/infoPersonal.model');
+const InfoAModel = require('../models/infoAcademica.model');
+const ExperLModel = require('../models/experLaboral.model');
+const RefePModel = require('../models/refePersonales.model');
+const InfoEModel = require('../models/infoEmpresa.model');
+const PubliModel = require('../models/publicaciones.model');
 //Instancia de las Tablas....
 //Persona.
 const User = UserModel(sequelize, Sequelize);
 const Role = RoleModel(sequelize, Sequelize);
-
+const InfoP = InfoPModel(sequelize, Sequelize)
+const InfoA = InfoAModel(sequelize, Sequelize);
+const ExperL = ExperLModel(sequelize,Sequelize);
+const RefeP = RefePModel(sequelize,Sequelize);
+const InfoE = InfoEModel(sequelize, Sequelize);
+const Publi = PubliModel(sequelize,Sequelize);
 //Carga de datos tablas catalogo.
 const initData = () => {
     //Tabla de roles.
@@ -45,5 +55,11 @@ sequelize.sync({force: false}).then(()=>{
 
 module.exports = {
     User,
-    Role
+    Role,
+    InfoP,
+    InfoA,
+    ExperL,
+    RefeP,
+    InfoE,
+    Publi
 }
